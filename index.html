@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentPay - Rental Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <aside class="sidebar">
+    <h2>🏠 RentPay</h2>
+    <button onclick="showPage('dashboard')">Dashboard</button>
+    <button onclick="showPage('houses')">Houses</button>
+    <button onclick="showPage('tenants')">Tenants</button>
+    <button onclick="showPage('payments')">Payments</button>
+    <button onclick="showPage('sms')">Send SMS</button>
+  </aside>
+  <main class="main">
+    <div id="dashboard" class="page active">
+      <h1>Dashboard</h1>
+      <div class="cards">
+        <div class="card">
+          <h3>Total Houses</h3>
+          <p id="totalHouses">0</p>
+        </div>
+        
+        <div class="card">
+          <h3>Occupied</h3>
+          <p id="occupied">0</p>
+        </div>
+        
+        <div class="card">
+          <h3>Collected</h3>
+          <p id="collected">0</p>
+        </div>
+        <div class="card red">
+          <h3>Arrears</h3>
+          <p id="arrears">0</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="houses" class="page">
+      <h1>Houses</h1>
+      <form onsubmit="addHouse(event)">
+        <input id="houseNo" placeholder="House No" required>
+        <input id="houseRent" type="number" placeholder="Rent" required>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>House</th>
+            <th>Rent</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="houseList"></tbody>
+      </table>
+    </div>
+   
+    <div id="tenants" class="page">
+      <h1>Tenants</h1>
+      <form onsubmit="addTenant(event)">
+        <input id="tName" placeholder="Name" required>
+        <input id="tPhone" placeholder="Phone" required>
+        <select id="tHouse" required></select>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>House</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody id="tenantList"></tbody>
+      </table>
+    </div>
+    
+    <div id="payments" class="page">
+      <h1>Payments</h1>
+      <form onsubmit="addPayment(event)">
+        <select id="pTenant" required></select>
+        <input id="pAmount" type="number" placeholder="Amount" required>
+        <input id="pMonth" type="month" required>
+        <button type="submit">Save</button>
+      </form>
+      <div id="receiptArea"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Tenant</th>
+            <th>Amount</th>
+            <th>Month</th>
+          </tr>
+        </thead>
+        <tbody id="paymentList"></tbody>
+      </table>
+    </div>
+    
+    <div id="sms" class="page">
+      <h1>SMS</h1>
+      <div id="smsList"> 
+      </div>
+    </div>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
