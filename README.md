@@ -50,7 +50,9 @@ Screenshots of the application will be added here.
 
 ## Live Demo
 
-The live website will be linked here after deployment.
+View the live Rental Management System here:
+
+[Open RentPay Website](https://rad-syrniki-f4cd54.netlify.app)
 
 ## Future Improvements
 
